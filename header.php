@@ -17,7 +17,7 @@
 
 		<meta charset="utf-8">
 		<title>Ruzfood</title>
-		<meta name="description" content="Startup HTML Optimized">
+		<meta name="description" content="РОССИЙСКИЙ ПРОИЗВОДИТЕЛЬ ФУНКЦИОНАЛЬНОЙ ПИЩЕВОЙ ПРОДУКЦИИ">
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
 		<meta property="og:image" content="img/preview.jpg">
