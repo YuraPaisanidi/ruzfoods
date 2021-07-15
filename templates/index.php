@@ -4,16 +4,20 @@
 
 <?php get_header(); ?>
 
-<section class="hero">
+<?php if( have_rows('slider', 'option') ): ?>
+	<section class="hero">
 		<div class="hero__slider swiper-container">
 			<h1 class="h1">
 				<?php the_field('slider_text', 'option'); ?>
 			</h1>
 
 			<div class="swiper-wrapper">
-				<div class="hero__item swiper-slide">	<img src="<?php echo get_template_directory_uri(); ?>/assets/img/main1.jpg" alt=""></div>
-				<div class="hero__item swiper-slide">	<img src="<?php echo get_template_directory_uri(); ?>/assets/img/main2.jpg" alt=""></div>
-				<div class="hero__item swiper-slide">	<img src="<?php echo get_template_directory_uri(); ?>/assets/img/main3.jpg" alt=""></div>
+				<?php while( have_rows('slider', 'option') ): the_row(); 
+					$img = get_sub_field('img');
+					?>
+					<div class="hero__item swiper-slide">	<img src="<?php echo $img; ?>" alt=""></div>
+
+				<?php endwhile; ?>
 			</div>
 
 			<div class="hero__pagination swiper-pagination"></div>
@@ -22,6 +26,8 @@
 			<div class="hero__next swiper-button-next"></div>
 		</div>
 	</section>
+
+<?php endif; ?>
 
 	<section class="trends">
 		<div class="container trends__container">
@@ -89,111 +95,37 @@
 
 	<section class="product">
 		<div class="container product__container">
-			<h2 class="h2 product__title"><span>Широкая линейка</span> продукции</h2>
+			<h2 class="h2 product__title"><?php the_field('block_3_title', 'option'); ?></h2>
 			<p class="product__subtitle">
-				Мы разрабатываем и производим функциональную пищевую<br>
-				 продукцию в разных категориях
+				<?php the_field('block_3_subtitle', 'option'); ?>
 			</p>
-				<div class="product__wrap">
-					<div class="product__wrap_left">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/product.png" alt="">
-					</div>
+			<div class="product__wrap">
+				<div class="product__wrap_left">
+					<img src="<?php the_field('block_3_img', 'option'); ?>" alt="">
+				</div>
+
+				<?php if( have_rows('accordion', 'option') ): ?>
 					<div class="product__wrap_right">
+						<?php while( have_rows('accordion', 'option') ): the_row(); 
+							$title = get_sub_field('title');
+							$content = get_sub_field('content');
+							?>
 
 						<div class="product__accordion accordion">
 							<div class="product__check accordion__header">
-								<p>Витамины</p>
+								<p><?php echo $title; ?></p>
 							</div>
 							<div class="accordion__content">
 								<p>
-									Витамины – это органические вещества, которые являются необходимыми
-									составляющими для правильного функционирования организма. Способствуют
-									протеканию важнейших химических реакций в нашем организме поддерживающих
-									жизнь в нашем теле.
+									<?php echo $content; ?>
 								</p>
 							</div>
 						</div>
 
-						<div class="product__accordion accordion">
-							<div class="product__check accordion__header">
-								<p>Минералы</p>
-							</div>
-							<div class="accordion__content">
-								<p>
-									Минералы - природные неорганические вещества, которые нужны человеку, достаточный и
-									сбалансированный уровень которых — это здоровое и продуктивное функционирование
-									всего организма. Микроэлементы необходимо для формирования костной ткани и
-									зубной эмали, являются одной из составляющих гемоглобина.
-								</p>
-							</div>
-						</div>
-
-						<div class="product__accordion accordion">
-							<div class="product__check accordion__header">
-								<p>Аминокислоты</p>
-							</div>
-							<div class="accordion__content">
-								<p>
-									АМИНОКИСЛОТЫ — играют важную роль в синтезе ферментов и белков, они
-									важны для здоровья нервной и мышечной систем, для выработки гормонов, это кирпичи,
-									из которых собственно строится человек.
-								</p>
-							</div>
-						</div>
-
-						<div class="product__accordion accordion">
-							<div class="product__check accordion__header">
-								<p>Спортивное питание</p>
-							</div>
-							<div class="accordion__content">
-								<p>
-									Спортивное питание - это особая группа пищевых добавок, выступает в роли
-									дополнительного источника белков, углеводов и жиров, витаминов и минералов,
-									аминокислот, и других полезных и необходимых спортсмену веществ.
-								</p>
-							</div>
-						</div>
-
-						<div class="product__accordion accordion">
-							<div class="product__check accordion__header">
-								<p>Незаменимые жирные кислоты</p>
-							</div>
-							<div class="accordion__content">
-								<p>
-									Незаменимые жирные кислоты— важны для сердечно-сосудистой системы:
-									препятствуют развитию атеросклероза, улучшают кровообращение, обладают
-									кардиопротекторным и антиаритмическим действием.
-								</p>
-							</div>
-						</div>
-
-						<div class="product__accordion accordion">
-							<div class="product__check accordion__header">
-								<p>Пробиотики</p>
-							</div>
-							<div class="accordion__content">
-								<p>
-									Пробиотики  это живые функциональные и безвредные микроорганизмы, которые
-									нормализуют микрофлору кишечника, укрепляют иммунитет человека. Регулярный прием
-									пробиотиков может помочь восстановить естественный баланс кишечной флоры.
-								</p>
-							</div>
-						</div>
-
-						<div class="product__accordion accordion">
-							<div class="product__check accordion__header">
-								<p>Натуральные диетические добавки</p>
-							</div>
-							<div class="accordion__content">
-								<p>
-									Натуральные диетические добавки растительного, животного или минерального
-									происхождения. Их предназначение – профилактика заболеваний, укрепление защитных
-									функций организма, поддержание хорошей физической формы и психического здоровья.
-								</p>
-							</div>
-						</div>
-
+						<?php endwhile; ?>
 					</div>
+				<?php endif; ?>
+
 			</div>
 		</div>
 	</section>

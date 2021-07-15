@@ -330,17 +330,22 @@
 
 		&_left
 			@extend .trends__wrap_left
+
+			+r(1200)
+				max-width: 50%
+
 		&_right
 			@extend .trends__wrap_right
 			display: flex
 			flex-direction: column
 			gap: 20px
+			padding-left: 50px
 			
-			+r(768)
-				padding-left: 80px
+			+r(1200)
+				max-width: 50%
 
-			+r(480)
-				padding-left: 60px
+			+r(767)
+				max-width: 100%
 
 	.accordion
 		margin-bottom: 10px

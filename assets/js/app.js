@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			loop: true,
 			effect: 'fade',
 			autoplay: {
-				delay: 5000,
+				delay: 3000,
 			},
 			pagination: {
 				el: ".swiper-pagination",
