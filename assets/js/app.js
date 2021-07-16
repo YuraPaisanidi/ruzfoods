@@ -3,28 +3,21 @@
 document.addEventListener("DOMContentLoaded", function() {
 
 	// ----------------------SLIDER-hero----------------------
-		var mySwiper = new Swiper('.swiper-container', {
+		var mySwiper = new Swiper('.hero__slider', {
 			slidesPerView: 1,
-			spaceBetween: 30,
 			loop: true,
-			effect: 'fade',
+			// effect: 'fade',
 			autoplay: {
 				delay: 3000,
 			},
 			pagination: {
-				el: ".swiper-pagination",
+				el: ".hero__pagination",
 				clickable: true,
 			},
 			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
+				nextEl: '.hero__button_next',
+				prevEl: '.hero__button_prev',
 			},
-			// breakpoints: {
-			// 	320: {
-			// 		slidesPerView: 2,
-			// 		spaceBetween: 20
-			// 	},
-			// }
 		});
 
 

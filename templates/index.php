@@ -6,6 +6,7 @@
 
 <?php if( have_rows('slider', 'option') ): ?>
 	<section class="hero">
+		
 		<div class="hero__slider swiper-container">
 			<h1 class="h1">
 				<?php the_field('slider_text', 'option'); ?>
@@ -15,15 +16,15 @@
 				<?php while( have_rows('slider', 'option') ): the_row(); 
 					$img = get_sub_field('img');
 					?>
-					<div class="hero__item swiper-slide">	<img src="<?php echo $img; ?>" alt=""></div>
+					<div class="hero__item swiper-slide" style="background-image:url(<?php echo $img; ?>)"></div>
 
 				<?php endwhile; ?>
 			</div>
 
-			<div class="hero__pagination swiper-pagination"></div>
+			<div class="hero__pagination"></div>
 
-			<div class="hero__prev swiper-button-prev"></div>
-			<div class="hero__next swiper-button-next"></div>
+			<div class="hero__button_prev"></div>
+			<div class="hero__button_next"></div>
 		</div>
 	</section>
 
