@@ -78,21 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		};
 		// headerFixed('.header', '.header--active');
 	
-	//----------------------HAMBURGER-----------------------
-		// const hamburger = (hamburgerButton, hamburgerNav, hamburgerHeader) => {
-		// 	const button = document.querySelector(hamburgerButton),
-		// 				nav = document.querySelector(hamburgerNav),
-		// 				header = document.querySelector(hamburgerHeader);
-	
-		// 	button.addEventListener('click', (e) => {
-		// 		button.classList.toggle('hamburger--active');
-		// 		nav.classList.toggle('header__nav--active');
-		// 		header.classList.toggle('header--menu');
-		// 	});
-	
-		// };
-		// // hamburger('.hamburger', '.header__nav', '.header');
-		
 	//----------------------MODAL-----------------------
 		const modals = (modalSelector) => {
 			const	modal = document.querySelectorAll(modalSelector);
@@ -307,21 +292,36 @@ document.addEventListener("DOMContentLoaded", function() {
 							accordionContent = item.querySelector('.accordion__content');
 
 				accordionClick.addEventListener('click', (e) => {
-					if(!item.classList.contains('accordion--active')) {
+					// if(!item.classList.contains('accordion--active')) {
 
-						item.classList.add('accordion--active')
-						accordionContent.style.height = "auto"
-						var height = accordionContent.clientHeight + "px"
-						accordionContent.style.height = "0px"
+						
+						for(let i = 0; i < accordion.length; i++) {
+							accordion[i].classList.remove('accordion--active');
+							accordion[i].querySelector('.accordion__content').style.height = "0px";
+							console.log('remove all')
+						}
 
-						setTimeout(() => {
-							accordionContent.style.height = height
-						}, 0)
-
-						} else {
+						if(item.classList.contains('accordion--active')) {
+							item.classList.remove('accordion--active')
 							accordionContent.style.height = "0px"
-								item.classList.remove('accordion--active')
-					}
+							console.log('remove')
+						
+						} else {
+							item.classList.add('accordion--active')
+							accordionContent.style.height = "auto"
+							var height = accordionContent.clientHeight + "px"
+							accordionContent.style.height = "0px"
+							console.log('add')
+
+							setTimeout(() => {
+								accordionContent.style.height = height
+							}, 0)
+						}
+						
+					// 	} else {
+					// 		accordionContent.style.height = "0px"
+					// 			item.classList.remove('accordion--active')
+					// }
 
 				});
 			});
